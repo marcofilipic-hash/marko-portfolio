@@ -586,15 +586,15 @@ nav a:hover { font-weight: 600; color: var(--fg); }
 /* Filmstrip — horizontal thumbnail row at bottom */
 .detail-filmstrip {
   flex-shrink: 0;
+  min-width: 0;
   display: flex;
   gap: 6px;
   padding: 12px 0 12px;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
   border-top: 1px solid var(--overlay-light);
-  max-width: 100%;
   -webkit-overflow-scrolling: touch;
 }
 .detail-filmstrip::-webkit-scrollbar { display: none; }
