@@ -586,15 +586,13 @@ nav a:hover { font-weight: 600; color: var(--fg); }
 /* Filmstrip — horizontal thumbnail row at bottom */
 .detail-filmstrip {
   flex-shrink: 0;
-  min-width: 0;
-  display: flex;
-  gap: 6px;
-  padding: 12px 0 12px;
   overflow-x: auto;
   overflow-y: hidden;
+  white-space: nowrap;
+  padding: 12px 0 12px;
+  border-top: 1px solid var(--overlay-light);
   scrollbar-width: none;
   -ms-overflow-style: none;
-  border-top: 1px solid var(--overlay-light);
   -webkit-overflow-scrolling: touch;
 }
 .detail-filmstrip::-webkit-scrollbar { display: none; }
@@ -603,9 +601,10 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   height: 144px;
   width: 144px;
   object-fit: cover;
-  display: block;
+  display: inline-block;
+  vertical-align: top;
   cursor: pointer;
-  flex-shrink: 0;
+  margin-right: 6px;
   opacity: 0.6;
   transition: opacity 0.2s ease;
 }
