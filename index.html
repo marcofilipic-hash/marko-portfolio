@@ -1,0 +1,2067 @@
+<title>Marko Filipic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Industrial Designer — Barcelona. Furniture, objects, and everyday things.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap">
+
+<style>
+/* Marko Filipic Portfolio — warm material palette, editorial grid */
+:root {
+  --bg: #FFFFFF;
+  --bg-alt: #F5F5F5;
+  --fg: #1C1A17;
+  --fg-secondary: #3A3631;
+  --fg-muted: #B5AFA5;
+  --accent: #C4653A;
+  --accent-hover: #D4956A;
+  --overlay: rgba(28, 26, 23, 0.7);
+  --overlay-light: rgba(28, 26, 23, 0.04);
+
+  --font-display: 'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --space-2xl: 10rem;
+}
+
+/* Subtle letterpress relief on type */
+.hero-name,
+.hero-tagline,
+.section-label-text,
+.detail-header-name,
+.footer-name {
+  text-shadow:
+    0 1px 1px rgba(255,255,255,0.7),
+    0 -1px 1px rgba(0,0,0,0.04);
+}
+
+/* Deliberately light-only — clean white canvas */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  background-blend-mode: multiply;
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g transform='rotate(-40,20,20)' fill='none' stroke='%23333' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 4.3l-3.6 7.2h7.2z' fill='none'/><path d='M20 4.3l-0.6 2.2h1.2z' fill='%23333'/><line x1='16.4' y1='11.5' x2='23.6' y2='11.5'/><path d='M16.4 11.5q3.6 1.7 7.2 0'/><line x1='16.4' y1='13.2' x2='16.4' y2='30'/><line x1='23.6' y1='13.2' x2='23.6' y2='30'/><line x1='18.8' y1='13.2' x2='18.8' y2='30'/><line x1='21.2' y1='13.2' x2='21.2' y2='30'/><path d='M16.4 30q3.6 4.3 7.2 0' fill='%23333'/></g></svg>") 3 1, auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: transparent;
+}
+
+*, *::before, *::after {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g transform='rotate(-40,20,20)' fill='none' stroke='%23333' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 4.3l-3.6 7.2h7.2z' fill='none'/><path d='M20 4.3l-0.6 2.2h1.2z' fill='%23333'/><line x1='16.4' y1='11.5' x2='23.6' y2='11.5'/><path d='M16.4 11.5q3.6 1.7 7.2 0'/><line x1='16.4' y1='13.2' x2='16.4' y2='30'/><line x1='23.6' y1='13.2' x2='23.6' y2='30'/><line x1='18.8' y1='13.2' x2='18.8' y2='30'/><line x1='21.2' y1='13.2' x2='21.2' y2='30'/><path d='M16.4 30q3.6 4.3 7.2 0' fill='%23333'/></g></svg>") 3 1, auto !important;
+}
+
+/* Light pencil cursor for dark backgrounds */
+.light-cursor,
+.light-cursor *,
+.light-cursor *::before,
+.light-cursor *::after {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g transform='rotate(-40,20,20)' fill='none' stroke='%23F5F2EC' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 4.3l-3.6 7.2h7.2z' fill='none'/><path d='M20 4.3l-0.6 2.2h1.2z' fill='%23F5F2EC'/><line x1='16.4' y1='11.5' x2='23.6' y2='11.5'/><path d='M16.4 11.5q3.6 1.7 7.2 0'/><line x1='16.4' y1='13.2' x2='16.4' y2='30'/><line x1='23.6' y1='13.2' x2='23.6' y2='30'/><line x1='18.8' y1='13.2' x2='18.8' y2='30'/><line x1='21.2' y1='13.2' x2='21.2' y2='30'/><path d='M16.4 30q3.6 4.3 7.2 0' fill='%23F5F2EC'/></g></svg>") 3 1, auto !important;
+}
+
+/* Auto light cursor on images and dark overlays */
+.project-card img,
+.detail-hero-image img,
+.detail-filmstrip img,
+.about-photo,
+.gallery-zoom-overlay {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g transform='rotate(-40,20,20)' fill='none' stroke='%23F5F2EC' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 4.3l-3.6 7.2h7.2z' fill='none'/><path d='M20 4.3l-0.6 2.2h1.2z' fill='%23F5F2EC'/><line x1='16.4' y1='11.5' x2='23.6' y2='11.5'/><path d='M16.4 11.5q3.6 1.7 7.2 0'/><line x1='16.4' y1='13.2' x2='16.4' y2='30'/><line x1='23.6' y1='13.2' x2='23.6' y2='30'/><line x1='18.8' y1='13.2' x2='18.8' y2='30'/><line x1='21.2' y1='13.2' x2='21.2' y2='30'/><path d='M16.4 30q3.6 4.3 7.2 0' fill='%23F5F2EC'/></g></svg>") 3 1, auto !important;
+}
+
+/* ---- Typography ---- */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  text-wrap: balance;
+  letter-spacing: -0.03em;
+}
+
+p { margin: 0; }
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover { color: var(--fg-muted); }
+a:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+}
+
+/* ---- Layout ---- */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---- Header ---- */
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: transparent;
+  padding-block: var(--space-sm);
+  border-bottom: 1px solid var(--overlay-light);
+  transition: background 0.3s ease;
+}
+header.scrolled {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}
+.site-name:hover { color: var(--fg); }
+
+nav {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+nav a {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--fg-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+nav a::after {
+  content: attr(data-text);
+  font-weight: 600;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+nav a:hover { font-weight: 600; color: var(--fg); }
+
+/* ---- Hero ---- */
+.hero {
+  padding-block: var(--space-xl) var(--space-lg);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.08;
+  color: var(--fg);
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+
+.hero-word {
+  display: inline;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroWordIn 0.6s ease forwards;
+}
+.hw1 { animation-delay: 0.2s; }
+.hw2 { animation-delay: 0.6s; }
+.hw3 { animation-delay: 1.0s; }
+
+@keyframes heroWordIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes markerStroke {
+  from { scale: 0 1; }
+  to { scale: 1 1; }
+}
+
+.hero .subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem);
+  color: var(--fg-muted);
+  font-weight: 400;
+  max-width: 30ch;
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* ---- Section Labels ---- */
+.section-label-row {
+  grid-column: 1 / -1;
+  padding: var(--space-lg) 0 var(--space-sm) 0;
+}
+
+.section-label-row:first-child {
+  padding-top: 0;
+}
+
+.section-label-text {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* ---- Awards Section ---- */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+.hero-awards {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hero-award-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.hero-award-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+.awards-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+  opacity: 0.7;
+}
+.award-logo {
+  height: 128px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+.award-logo:hover {
+  filter: grayscale(0%);
+}
+@media (max-width: 600px) {
+  .awards-logos { gap: var(--space-md); }
+  .award-logo { height: 96px; }
+}
+
+/* ---- Project Grid ---- */
+.projects-section {
+  padding-block-end: var(--space-xl);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-alt);
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.04);
+}
+
+.project-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-md);
+  background: linear-gradient(0deg, rgba(28,26,23,0.75) 0%, rgba(28,26,23,0.15) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover .project-info,
+.project-card:focus-within .project-info {
+  opacity: 1;
+}
+
+.project-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: #F5F2EC;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.project-type {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(245, 242, 236, 0.7);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: -2px;
+}
+
+/* ---- Project Detail Page ---- */
+.project-detail {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  background-blend-mode: multiply;
+  overflow: hidden;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.project-detail.active {
+  display: block;
+}
+
+.detail-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-block: var(--space-sm);
+  border-bottom: 1px solid var(--overlay-light);
+}
+
+.detail-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.detail-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--fg-secondary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+.detail-back:hover { color: var(--fg); }
+.detail-back svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.detail-project-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+.detail-body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-sm) 16px var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 52px);
+  height: calc(100dvh - 52px);
+}
+
+.detail-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  min-height: 0;
+}
+
+.detail-hero-text {
+  padding-top: var(--space-md);
+}
+
+.detail-hero-text h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.08;
+  color: var(--fg);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  display: inline;
+  position: relative;
+}
+.detail-hero-text h2::after {
+  content: '';
+  position: absolute;
+  left: -0.08em;
+  right: -0.04em;
+  bottom: 0.08em;
+  height: 0.45em;
+  background: rgba(90, 170, 210, 0.3);
+  transform: skewX(-2deg) rotate(-0.5deg);
+  border-radius: 0.06em 0.15em 0.08em 0.12em;
+  z-index: -1;
+  transform-origin: left center;
+  scale: 0 1;
+}
+.detail-hero-text h2.highlighted::after {
+  animation: markerStroke 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.detail-hero-text .detail-type {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  margin-top: var(--space-sm);
+}
+
+.detail-hero-text .detail-desc {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--fg-secondary);
+  margin-top: var(--space-md);
+  max-width: 45ch;
+}
+.detail-role {
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+  margin-top: 0.75rem;
+  letter-spacing: 0.02em;
+}
+.detail-awards {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+.detail-awards img {
+  height: 9rem;
+  width: auto;
+  opacity: 0.55;
+  filter: grayscale(100%);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+.detail-awards img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+.detail-hero-nav {
+  display: flex;
+  gap: var(--space-md);
+  flex-shrink: 0;
+  padding: var(--space-sm) 0;
+}
+.detail-hero-nav .detail-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.detail-hero-nav .detail-nav-link:hover { color: var(--fg); }
+.detail-hero-nav .detail-nav-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-muted);
+}
+.detail-hero-nav .detail-nav-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.detail-hero-nav .detail-nav-link.next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.detail-hero-image {
+  min-height: 0;
+}
+.detail-hero-image img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Filmstrip — horizontal thumbnail row at bottom */
+.detail-filmstrip {
+  flex-shrink: 0;
+  display: flex;
+  gap: 6px;
+  padding: 12px 0 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-top: 1px solid var(--overlay-light);
+}
+.detail-filmstrip::-webkit-scrollbar { display: none; }
+
+.detail-filmstrip img {
+  height: 144px;
+  width: 144px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+.detail-filmstrip img:hover {
+  opacity: 1;
+}
+.detail-filmstrip img.active {
+  opacity: 1;
+  outline: 2px solid var(--fg);
+  outline-offset: -2px;
+}
+
+/* Click zoom overlay */
+.gallery-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 26, 23, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.gallery-zoom-overlay.visible {
+  opacity: 1;
+  pointer-events: none;
+}
+.gallery-zoom-overlay.visible.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+.gallery-zoom-overlay img {
+  max-width: 80vw;
+  max-height: 85vh;
+  object-fit: contain;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+  transform: scale(0.94);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+.gallery-zoom-overlay.visible img {
+  transform: scale(1);
+}
+
+
+/* (detail nav now inside .detail-hero-nav) */
+
+/* Full-screen image viewer */
+.image-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(28, 26, 23, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.image-viewer.active {
+  display: flex;
+}
+.image-viewer img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+.image-viewer-close {
+  position: fixed;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 1px solid rgba(245, 242, 236, 0.2);
+  border-radius: 50%;
+  color: #F5F2EC;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 201;
+}
+.image-viewer-close:hover {
+  border-color: rgba(245, 242, 236, 0.5);
+}
+.viewer-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid rgba(245, 242, 236, 0.2);
+  border-radius: 50%;
+  color: #F5F2EC;
+  font-size: 1.75rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 201;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.viewer-arrow:hover {
+  border-color: rgba(245, 242, 236, 0.5);
+  background: rgba(245, 242, 236, 0.08);
+}
+.viewer-prev { left: var(--space-sm); }
+.viewer-next { right: var(--space-sm); }
+.viewer-counter {
+  position: fixed;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(245, 242, 236, 0.6);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  z-index: 201;
+}
+
+/* ---- Statement ---- */
+.statement {
+  padding-block: var(--space-xl);
+  border-top: 1px solid var(--overlay-light);
+}
+
+.statement-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.statement-label {
+  padding-top: 0.4rem;
+}
+
+.statement-text {
+}
+
+.statement-text p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--fg-secondary);
+  font-weight: 400;
+}
+
+.statement-text p + p {
+  margin-top: var(--space-sm);
+}
+
+.statement-text .highlight {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* ---- Process Section ---- */
+.process {
+  position: relative;
+  padding-block: var(--space-xl);
+  border-top: 1px solid var(--overlay-light);
+}
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.process-label {
+  padding-top: 0.4rem;
+  white-space: nowrap;
+}
+
+.process-text {
+}
+
+.process-media {
+  margin-top: var(--space-md);
+}
+
+.process-intro {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--fg-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.process-intro .highlight {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.process-video-block {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-alt);
+  margin-bottom: 20px;
+}
+
+.process-video-block video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Carousel */
+.process-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.process-slides {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-slide {
+  min-width: 100%;
+  padding: var(--space-md);
+  background: var(--bg-alt);
+  border: 1px solid var(--overlay-light);
+}
+
+.process-slide-number {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  margin-bottom: 0.5rem;
+}
+
+.process-slide-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.process-slide-desc {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--fg-secondary);
+}
+
+/* Carousel controls */
+.process-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  gap: var(--space-sm);
+}
+
+.process-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--overlay-light);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.process-nav-btn:hover {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+.process-nav-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.process-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.process-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fg-muted);
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.process-dot.active {
+  opacity: 1;
+  background: var(--fg);
+  transform: scale(1.25);
+}
+
+@media (max-width: 560px) {
+  .process-slide {
+    padding: var(--space-sm);
+  }
+  .process-slide-title {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---- About Section ---- */
+.about {
+  padding-block: var(--space-xl);
+  border-top: 1px solid var(--overlay-light);
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-label {
+  padding-top: 0.4rem;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.about-text {
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--fg-secondary);
+}
+
+.about-text p + p {
+  margin-top: var(--space-sm);
+}
+
+/* ---- Footer ---- */
+footer {
+  padding-block: var(--space-lg);
+  border-top: 1px solid var(--overlay-light);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+.footer-role {
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  align-items: flex-end;
+}
+
+.footer-links a {
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+  transition: color 0.2s ease;
+}
+.footer-links a:hover {
+  color: var(--fg);
+}
+
+.footer-bottom {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--overlay-light);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
+
+/* ---- Contact Form ---- */
+.contact-section {
+  padding-block: var(--space-xl);
+  background: var(--bg);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-lg);
+}
+
+.contact-label {
+  padding-top: 0.25rem;
+}
+
+.contact-intro p {
+  font-size: 1.05rem;
+  color: var(--fg-secondary);
+  margin-bottom: var(--space-md);
+  max-width: 540px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 640px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--fg-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid rgba(28, 26, 23, 0.12);
+  border-radius: 6px;
+  padding: 12px 14px;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--fg);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--fg-muted);
+  font-weight: 300;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B5AFA5' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-submit {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--fg);
+  border: none;
+  border-radius: 6px;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+}
+
+.form-submit:hover {
+  background: var(--fg-secondary);
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  margin-top: 4px;
+  min-height: 1.2em;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statement-inner,
+  .about-inner,
+  .contact-inner,
+  .process-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .about-photo {
+    max-width: 280px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  nav { gap: var(--space-sm); }
+
+  /* Detail page: let it scroll naturally on tablet/mobile */
+  .project-detail {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .detail-body {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .detail-hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .detail-hero-text {
+    padding-top: 0;
+    order: 2;
+  }
+  .detail-hero-image {
+    order: 1;
+    max-height: 60vw;
+  }
+  .detail-hero-image img {
+    aspect-ratio: auto;
+    max-height: 60vw;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .detail-filmstrip {
+    flex-wrap: nowrap;
+    padding: 12px 0;
+  }
+  .detail-filmstrip img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .detail-awards img {
+    height: 6rem;
+  }
+
+  .detail-hero-nav {
+    flex-wrap: wrap;
+  }
+
+  /* Zoom overlay: bigger image on tablet */
+  .gallery-zoom-overlay img {
+    max-width: 92vw;
+    max-height: 80vh;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --space-lg: 2.5rem;
+    --space-xl: 3.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .hero {
+    padding-block: var(--space-lg) var(--space-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero .subtitle {
+    text-align: left;
+    max-width: none;
+    font-size: 0.85rem;
+  }
+
+  .hero-right {
+    align-items: flex-start;
+  }
+
+  .hero-awards {
+    gap: 0.6rem;
+  }
+
+  .hero-award-logo {
+    height: 24px;
+  }
+
+  .site-name {
+    font-size: 1rem;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+  }
+
+  .section-label-text {
+    font-size: 0.65rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-links {
+    align-items: flex-start;
+  }
+
+  .project-info {
+    opacity: 1;
+    background: linear-gradient(0deg, rgba(28,26,23,0.65) 0%, transparent 60%);
+  }
+
+  .project-name {
+    font-size: 0.85rem;
+  }
+
+  .project-type {
+    font-size: 0.7rem;
+  }
+
+  /* Detail page mobile */
+  .project-detail {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .detail-body {
+    padding: var(--space-sm) 4px var(--space-xs);
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .detail-hero {
+    gap: var(--space-sm);
+  }
+
+  .detail-hero-image {
+    max-height: 55vw;
+  }
+  .detail-hero-image img {
+    max-height: 55vw;
+  }
+
+  .detail-hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .detail-hero-text .detail-desc {
+    font-size: 0.9375rem;
+    max-width: none;
+  }
+
+  .detail-awards {
+    gap: 0.5rem;
+  }
+  .detail-awards img {
+    height: 4.5rem;
+  }
+
+  .detail-filmstrip {
+    padding: 8px 0;
+    gap: 4px;
+  }
+  .detail-filmstrip img {
+    height: 72px;
+    width: 72px;
+  }
+
+  .detail-hero-nav {
+    gap: var(--space-sm);
+    padding: var(--space-xs) 0;
+  }
+  .detail-hero-nav .detail-nav-name {
+    font-size: 0.85rem;
+  }
+  .detail-hero-nav .detail-nav-label {
+    font-size: 0.6rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-inner {
+    gap: var(--space-sm);
+  }
+  .about-photo {
+    max-width: 200px;
+  }
+
+  .contact-inner {
+    gap: var(--space-sm);
+  }
+
+  /* Zoom overlay: full-width on phone */
+  .gallery-zoom-overlay img {
+    max-width: 96vw;
+    max-height: 75vh;
+  }
+
+  /* Statement section */
+  .statement-text p {
+    font-size: 0.9375rem;
+  }
+
+  .process-intro {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card img {
+    transition: none;
+  }
+  .project-info {
+    transition: none;
+  }
+}
+</style>
+
+<!-- Main Page -->
+<div id="mainPage">
+
+<!-- Header -->
+<header>
+  <div class="container header-inner">
+    <a class="site-name" onclick="goHome()">Marko Filipic</a>
+    <nav>
+      <a data-text="Work" onclick="goHome(); setTimeout(()=>document.getElementById('work')?.scrollIntoView({behavior:'smooth'}),100)">Work</a>
+      <a data-text="Process" onclick="goHome(); setTimeout(()=>document.getElementById('process')?.scrollIntoView({behavior:'smooth'}),100)">Process</a>
+      <a data-text="About" onclick="goHome(); setTimeout(()=>document.getElementById('about')?.scrollIntoView({behavior:'smooth'}),100)">About</a>
+      <a data-text="Contact" onclick="goHome(); setTimeout(()=>document.getElementById('contact')?.scrollIntoView({behavior:'smooth'}),100)">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="container">
+  <section class="hero">
+    <h1><span class="hero-word hw1">Objects,</span><br><span class="hero-word hw2">furniture,</span><br><span class="hero-word hw3">everyday things.</span></h1>
+    <p class="subtitle">From idea to production-ready design.</p>
+  </section>
+</div>
+
+<!-- Projects Grid -->
+<section id="work" class="projects-section">
+  <div class="container">
+    <div class="projects-grid" id="projectsGrid">
+    </div>
+  </div>
+</section>
+
+<!-- Statement -->
+<section class="statement">
+  <div class="container statement-inner">
+    <span class="label statement-label">Philosophy</span>
+    <div class="statement-text">
+      <p><span class="highlight">Simple solutions to complex things.</span></p>
+      <p>I make objects that earn their place. No ornament, no excess — just honest forms shaped by materials, craft, and real constraints. Every project starts with something tangible: a piece of wood, a tube, a production limit, a question worth answering.</p>
+      <p>The work shown here spans personal experiments and professional projects — furniture, lamps, speakers, vessels, products. Each one is a conversation between what I wanted to say and what the material allowed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process" class="process">
+  <div class="container process-layout">
+      <span class="label process-label">How I Work</span>
+      <div class="process-text">
+      <p class="process-intro"><span class="highlight">Every concept is born buildable.</span> I don't design ideas that look good on screen but die in the factory. From the first sketch, I'm already thinking about how it will be manufactured — that saves you time and money down the road.</p>
+      </div>
+  </div>
+  <div class="container">
+      <div class="process-media">
+      <div class="process-video-block">
+        <video autoplay muted loop playsinline>
+          <source src="images/process-timelapse.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="process-carousel">
+        <div class="process-slides" id="processSlides">
+          <div class="process-slide">
+            <div class="process-slide-number">01</div>
+            <div class="process-slide-title">Understanding Your Idea</div>
+            <div class="process-slide-desc">We start with a conversation where I listen, ask the right questions, and help you define what your product actually needs to be. If you don't have a brief, I'll create one. If you do, I'll sharpen it.</div>
+          </div>
+          <div class="process-slide">
+            <div class="process-slide-number">02</div>
+            <div class="process-slide-title">Research & Roadmap</div>
+            <div class="process-slide-desc">I study the market, materials, and manufacturing processes to know where we stand. Then I map out a project roadmap so you know exactly what to expect — timeline, stages, and deliverables.</div>
+          </div>
+          <div class="process-slide">
+            <div class="process-slide-number">03</div>
+            <div class="process-slide-title">Concept Exploration</div>
+            <div class="process-slide-desc">Sketches, mockups, usage scenarios, early renders and 3D drafts. This is the moment to explore freely — but every direction is grounded in how it will actually be manufactured.</div>
+          </div>
+          <div class="process-slide">
+            <div class="process-slide-number">04</div>
+            <div class="process-slide-title">Review & Direction</div>
+            <div class="process-slide-desc">I present the concepts with my recommendation. We iterate together, refine what works, and you choose the direction to move forward with.</div>
+          </div>
+          <div class="process-slide">
+            <div class="process-slide-number">05</div>
+            <div class="process-slide-title">Prototyping & 3D Printing</div>
+            <div class="process-slide-desc">The chosen concept becomes physical. Rapid prototypes, 3D prints, and scale models to test form, fit, and feel before committing to tooling.</div>
+          </div>
+          <div class="process-slide">
+            <div class="process-slide-number">06</div>
+            <div class="process-slide-title">Rendering & Visualization</div>
+            <div class="process-slide-desc">Photorealistic renders that bring the product to life — for investor decks, marketing, crowdfunding, or your own confidence before production.</div>
+          </div>
+          <div class="process-slide">
+            <div class="process-slide-number">07</div>
+            <div class="process-slide-title">Manufacturing & Go to Market</div>
+            <div class="process-slide-desc">I follow up with manufacturers, refine for production, and support you through tooling, sourcing, and the path to market. The design doesn't end until it's real.</div>
+          </div>
+        </div>
+      </div>
+      <div class="process-controls">
+        <button class="process-nav-btn" id="processPrev" aria-label="Previous step">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="process-dots" id="processDots"></div>
+        <button class="process-nav-btn" id="processNext" aria-label="Next step">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+        </button>
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+  <div class="container about-inner">
+    <div class="about-left">
+      <span class="label about-label">About</span>
+      <img src="images/tiento-about.jpg" alt="Marko Filipic working in the workshop" class="about-photo">
+    </div>
+    <div class="about-text">
+      <p>I make things — and I understand how they're made.</p>
+      <p>I grew up in a carpentry workshop in Argentina. Every resource counted. There were never big budgets, never spare parts. You learned to solve problems with what you had, and still make something worth keeping.</p>
+      <p>When you see how differently people around the world solve the same problems, you stop designing from assumptions and start designing from understanding.</p>
+      <p>Today I work between art and industry. My personal work is driven by material curiosity — wood, metal, ceramics. My professional work brings that same sensibility to products, furniture, and objects that need to be manufactured, sold, and lived with. Along the way, the projects I've been part of have been recognized with Red Dot (including Best of the Best), iF Design, Eurobike, MUSE, and European Product Design Awards — 10+ international awards between 2016 and 2025.</p>
+      <p class="services-paragraph"><strong>What I do for clients:</strong> Furniture design, product design, CMF (color, material, finish), 3D rendering, and prototyping. I take projects from first idea to production-ready files — or step in wherever the process needs me. If you're a brand looking for someone to develop a collection, a piece, or a product line, let's talk.</p>
+      <p>Based in Barcelona. Co-founder of <a href="https://watif.design" target="_blank" rel="noopener">Watif</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section id="contact" class="contact-section">
+  <div class="container contact-inner">
+    <span class="label contact-label">Contact</span>
+    <div class="contact-content">
+      <div class="contact-intro">
+        <p style="font-size:1.5rem;font-weight:500;line-height:1.3;margin-bottom:0.75rem;">Good things start with a conversation.</p>
+        <p>Tell me a bit about what you're looking for and I'll get back to you.</p>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" name="email" required placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="projectType">Project Type</label>
+            <select id="projectType" name="project_type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="furniture">Furniture Design</option>
+              <option value="product">Product Design</option>
+              <option value="rendering">3D Rendering / Visualization</option>
+              <option value="consulting">Design Consulting</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="" disabled selected>Select range</option>
+              <option value="under-5k">Under €5,000</option>
+              <option value="5k-15k">€5,000 — €15,000</option>
+              <option value="15k-30k">€15,000 — €30,000</option>
+              <option value="30k-plus">€30,000+</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="timeline">Timeline</label>
+          <select id="timeline" name="timeline">
+            <option value="" disabled selected>When do you need this?</option>
+            <option value="asap">As soon as possible</option>
+            <option value="1-3months">1 — 3 months</option>
+            <option value="3-6months">3 — 6 months</option>
+            <option value="flexible">Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell me about your project</label>
+          <textarea id="message" name="message" rows="4" placeholder="A brief description of what you're looking for..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-name">Marko Filipic</span>
+        <span class="footer-role">Industrial Designer — Barcelona</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.behance.net/MarcoFilipic" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.linkedin.com/in/marcofilipic" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/marcofilipic" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Marko Filipic</span>
+      <span>All renders &amp; designs by Marko Filipic</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /mainPage -->
+
+<!-- Project Detail Page (injected dynamically) -->
+<div class="project-detail" id="projectDetail">
+  <div class="detail-header">
+    <div class="detail-header-inner">
+      <button class="detail-back" onclick="goHome()">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back
+      </button>
+      <span class="detail-project-name" id="detailHeaderName"></span>
+    </div>
+  </div>
+  <div class="detail-body" id="detailBody"></div>
+</div>
+
+<!-- Full-screen image viewer -->
+<div class="image-viewer light-cursor" id="imageViewer" style="display:none">
+  <button class="image-viewer-close" aria-label="Close">&times;</button>
+  <img src="" alt="" id="viewerImg">
+</div>
+
+<script>
+const projects = [
+  // ——— Furniture & Objects ———
+  {
+    slug: "pasos",
+    name: "Pasos",
+    type: "Stool",
+    section: "Furniture & Objects",
+    desc: "Inspired by the concept of walking and carving our own path. It is the steps we take that lead us to new paths. There are no wrong steps or wrong paths. A solid wood bench with subtle details — the 'mistake' in its assembly opens up the possibility of choosing different paths and reaching the same goal, highlighting that even if we make a mistake, we lose nothing.\n\nRole — Design, prototyping, woodworking.",
+    img: "images/pasos.jpg",
+    images: ["images/pasos.jpg", "images/pasos-3.jpg", "images/pasos-5.jpg", "images/pasos-4.jpg"]
+  },
+  {
+    slug: "porta-saumerio",
+    name: "Porta Saumerio",
+    type: "Incense Holder",
+    section: "Furniture & Objects",
+    desc: "A solid wood block with a single precise vertical cut. Nothing more, nothing less. Light and shadow do the rest.\n\nRole — Design, woodworking.",
+    img: "images/porta-saumerio.jpg",
+    imgPosition: "bottom",
+    images: ["images/porta-saumerio.jpg", "images/porta-saumerio-2.jpg", "images/porta-saumerio-3.jpg"],
+    imagePositions: { "images/porta-saumerio.jpg": "bottom", "images/porta-saumerio-2.jpg": "bottom" }
+  },
+  {
+    slug: "graslei-rack",
+    name: "Graslei",
+    type: "Wine Rack",
+    section: "Furniture & Objects",
+    desc: "A stepped wooden wine rack where smooth and unfinished surfaces coexist. The form follows the logic of the joint — each step is both structure and display.\n\nRole — Design, prototyping, woodworking.",
+    img: "images/graslei-rack.jpg",
+    images: ["images/graslei-rack.jpg", "images/graslei-rack-2.jpg", "images/graslei-rack-3.jpg", "images/graslei-rack-4.jpg", "images/graslei-rack-5.jpg", "images/graslei-rack-6.jpg"]
+  },
+  {
+    slug: "tiento",
+    name: "Tiento",
+    type: "Pendant Lamp",
+    section: "Furniture & Objects",
+    desc: "A pendant lamp made from a single strip of kerf-cut wood, bent into a flowing organic form. The controlled cuts allow rigid material to curve freely — precision turned into fluidity. Integrated LED lighting follows the shape from within.\n\nRole — Design, prototyping, woodworking.",
+    img: "images/tiento-6.jpg",
+    images: ["images/tiento-6.jpg", "images/tiento-5.jpg", "images/tiento-3.jpg", "images/tiento-1.jpg", "images/tiento-4.jpg"]
+  },
+  {
+    slug: "encastre",
+    name: "Encuentros",
+    type: "Furniture Collection",
+    section: "Furniture & Objects",
+    desc: "Walking around Barcelona, I noticed that many balconies have tiles on their undersides — a hidden detail that gives each building its own personality. That observation became the starting point for Encuentros: a collection of solid wood furniture with ceramic tile accents. Geometric joints where strength and lightness meet. Raw yet refined, each piece is minimalist, well-crafted, and designed to feel both sturdy and light.\n\nRole — Concept, furniture design, prototyping, woodworking.",
+    img: "images/encastre.jpg",
+    images: ["images/encastre.jpg", "images/encastre-2.jpg", "images/encastre-3.jpg", "images/encastre-4.jpg", "images/encastre-5.jpg"]
+  },
+  {
+    slug: "round-stool",
+    name: "Round Stool",
+    type: "Stool Rendering",
+    section: "Furniture & Objects",
+    desc: "Seat and legs made entirely of laminated wood — chosen for its resistance and aesthetic quality. The legs are thicker where strength demands it. Assembled through tongue-and-groove joints and screws, no glue — designed to be taken apart and put back together.",
+    img: "images/round-stool.jpg",
+    images: ["images/round-stool.jpg", "images/round-stool-3.jpg", "images/round-stool-4.jpg", "images/round-stool-5.jpg", "images/round-stool-6.jpg", "images/round-stool-7.jpg", "images/round-stool-8.jpg", "images/round-stool-9.jpg", "images/round-stool-10.jpg", "images/round-stool-11.jpg", "images/round-stool-12.jpg", "images/round-stool-13.jpg", "images/round-stool-14.jpg"]
+  },
+  {
+    slug: "wood-experiments",
+    name: "Wood Experiments",
+    type: "Material Study",
+    section: "Furniture & Objects",
+    desc: "Hands-on explorations in wood joinery, grain direction, and surface contrast. Testing how different woods meet — light maple against dark walnut, precise edges against raw textures.",
+    img: "images/wood-experiments.jpg",
+    images: ["images/wood-experiments.jpg", "images/wood-experiments-web1.jpg", "images/wood-experiments-web2.jpg", "images/wood-experiments-web3.jpg", "images/wood-experiments-web4.jpg"]
+  },
+  {
+    slug: "torii",
+    name: "Torii",
+    type: "Stool",
+    section: "Furniture & Objects",
+    desc: "A stool inspired by the Japanese Torii gate — the threshold between the everyday and the sacred. It seeks proportions that communicate lightness and purity. Black-toned wood throughout, with a subtle red accent. Made with traditional methods, classic joints, and simple geometries.\n\nRole — Design, prototyping, woodworking.",
+    img: "images/torii.jpg",
+    images: ["images/torii.jpg", "images/torii-2.jpg", "images/torii-3.jpg", "images/torii-4.jpg", "images/torii-6.jpg"],
+    imagePositions: {"images/torii-2.jpg": "center bottom"}
+  },
+  {
+    slug: "spring-shelf",
+    name: "Spring Shelf",
+    type: "Shelving",
+    section: "Furniture & Objects",
+    desc: "Born from watching dumbbell bars in the gym. A modular system built from steel tubes, simple machined boards, and spring flanges that work as adjustable brackets. Same components, different configurations.\n\nRole — Concept, industrial design, prototyping.",
+    img: "images/spring-shelf.jpg",
+    images: ["images/spring-shelf.jpg", "images/spring-shelf-2.jpg", "images/spring-shelf-3.jpg", "images/spring-shelf-4.jpg", "images/spring-shelf-5.jpg"],
+    imagePositions: {"images/spring-shelf-3.jpg": "center bottom"}
+  },
+  {
+    slug: "tone-chair",
+    name: "Tone",
+    type: "Chair",
+    section: "Furniture & Objects",
+    desc: "An exploration of the tube and the bending process. The same bends were used for two different pieces. Made of four tubes and two pieces of sheet metal for seat and backrest. Some weld seams are left exposed — because of their beauty.\n\nRole — Design, prototyping, metalworking.",
+    img: "images/tone-chair.jpg",
+    images: ["images/tone-chair.jpg", "images/tone-chair-2.jpg", "images/tone-chair-3.jpg", "images/tone-chair-4.jpg", "images/tone-chair-5.jpg"]
+  },
+  // ——— Consumer Products ———
+  {
+    slug: "augur-spectr",
+    name: "Augur Spectr",
+    type: "Camera",
+    section: "Consumer Products",
+    desc: "A compact, weather-resistant camera designed for AeyeQ. Two smart eyes — optical and thermal — give edge AI hardware stable performance even in poor visibility. Small, elegant, and designed to blend into its surroundings. European Product Design Award 2021.\n\nRole — Industrial design, CMF, 3D rendering.",
+    img: "images/augur-spectr.jpg",
+    images: ["images/augur-spectr.jpg", "images/augur-spectr-2.jpg", "images/augur-spectr-3.jpg", "images/augur-spectr-4.jpg"],
+    awards: ["images/award-epda-2021.png"]
+  },
+  {
+    slug: "nobi",
+    name: "Nobi Smart Lamp",
+    type: "Smart Lighting",
+    section: "Consumer Products",
+    desc: "An AI-driven smart lamp for fall detection, prevention, and vital sign monitoring. The challenge was to make care technology that people actually want — not just need. The result is a lamp that fits any interior and looks nothing like medical equipment. Nobi saves lives 24/7, warns caregivers when health declines, and gives elderly people the dignity of living independently. iF Design Award 2023 · MUSE Design Award 2023.\n\nRole — Lead designer with Matías Papalini for Watif Design Studio.",
+    img: "images/nobi.jpg",
+    images: ["images/nobi.jpg", "images/nobi-2.jpg", "images/nobi-3.jpg", "images/nobi-4.jpg", "images/nobi-5.jpg", "images/nobi-6.jpg", "images/nobi-7.jpg", "images/nobi-8.jpg", "images/nobi-9.jpg", "images/nobi-10.jpg", "images/nobi-11.jpg", "images/nobi-12.jpg", "images/nobi-13.jpg"],
+    awards: ["images/award-if.png", "images/award-muse.png"]
+  },
+  {
+    slug: "portal",
+    name: "Portal",
+    type: "Mixed Reality System",
+    section: "Consumer Products",
+    desc: "In 2019, teenagers spent over 7 hours a day in front of a screen. What if the time we spend in the digital world depended on the time we spend outside? Portal is a mixed reality system that gamifies health. Create a digital avatar, sync your smartwatch through a portal smart mirror, and play games where performance depends on your real fitness. Even your avatar needs rest — just like you. European Product Design Award 2022.\n\nRole — Lead designer with Matías Papalini for Watif Design Studio.",
+    img: "images/portal.jpg",
+    images: ["images/portal.jpg", "images/portal-2.jpg", "images/portal-3.jpg", "images/portal-4.jpg", "images/portal-5.jpg", "images/portal-6.jpg", "images/portal-7.jpg"],
+    awards: ["images/award-epda-2022.png"]
+  },
+  {
+    slug: "quito",
+    name: "Quito",
+    type: "Stool Rendering",
+    section: "Consumer Products",
+    desc: "An adjustable-height stool — black leather cushion over a cast aluminum base. Soft meeting hard, organic floating above mechanical.",
+    img: "images/quito.jpg",
+    images: ["images/quito.jpg", "images/quito-2.jpg", "images/quito-3.jpg", "images/quito-4.jpg", "images/quito-5.jpg", "images/quito-6.jpg"]
+  },
+  {
+    slug: "pioneer",
+    name: "Pioneer",
+    type: "Interface Experiment",
+    section: "Consumer Products",
+    desc: "A compact DJ controller concept with a single oversized rotary knob. What happens when tactile feedback drives the entire design.",
+    img: "images/pioneer.jpg",
+    images: ["images/pioneer.jpg", "images/pioneer-2.jpg", "images/pioneer-3.jpg", "images/pioneer-4.jpg", "images/pioneer-5.jpg"]
+  },
+  {
+    slug: "muji",
+    name: "Muji Blister",
+    type: "Packaging Concept",
+    section: "Consumer Products",
+    desc: "In hardware, packaging is a barrier — torn open and thrown away. Inspired by MUJI's philosophy of Kanketsu (simplicity), this blister gives the packaging a permanent role. A slim sleeve that protects the drill bit in retail, hangs on a pegboard for workshop organization, and doubles as a grip handle for light manual use. No waste.\n\nRole — Concept, packaging design, 3D rendering.",
+    img: "images/muji.jpg",
+    images: ["images/muji.jpg", "images/muji-2.jpg", "images/muji-3.jpg", "images/muji-4.jpg", "images/muji-5.jpg", "images/muji-6.jpg"],
+    imagePositions: {"images/muji-2.jpg": "center bottom", "images/muji-3.jpg": "center bottom", "images/muji-4.jpg": "center bottom", "images/muji-5.jpg": "center bottom", "images/muji-6.jpg": "center bottom"}
+  },
+  {
+    slug: "cube-speaker",
+    name: "Cube Speaker",
+    type: "Audio / Material Study",
+    section: "Consumer Products",
+    desc: "The same cube, three materials — raw galvanized metal, transparent glass, dark walnut. Each one reveals a different character from the same form.",
+    img: "images/cube-speaker-metal.jpg",
+    images: ["images/cube-speaker-metal.jpg", "images/cube-speaker-metal-2.jpg", "images/cube-speaker-metal-3.jpg", "images/cube-speaker-glass.jpg", "images/cube-speaker-glass-2.jpg", "images/cube-speaker-wood.jpg", "images/cube-speaker-wood-2.jpg"]
+  },
+  // ——— Rendering & Exploration ———
+  {
+    slug: "aesop",
+    name: "Aesop Istros",
+    type: "Product Rendering",
+    section: "Rendering & Exploration",
+    desc: "A rendering study of the Aesop Istros fragrance bottle. Glass refraction, label detail, and the quiet weight of a luxury object.",
+    img: "images/aesop.jpg",
+    images: ["images/aesop.jpg", "images/aesop-2.jpg", "images/aesop-3.jpg"]
+  },
+  {
+    slug: "fruit-rendering",
+    name: "Kitchen Still Life",
+    type: "Rendering",
+    section: "Rendering & Exploration",
+    desc: "Bowls, cutting boards, a mortar, fruit. A rendering exercise in the warmth and texture of everyday kitchen objects.",
+    img: "images/fruit-rendering.jpg",
+    images: ["images/fruit-rendering.jpg", "images/fruit-rendering-2.jpg", "images/fruit-rendering-3.jpg", "images/fruit-rendering-4.jpg", "images/fruit-rendering-5.jpg"]
+  },
+  {
+    slug: "vitamin-k",
+    name: "Vitamin K",
+    type: "Lamp",
+    section: "Rendering & Exploration",
+    desc: "A desk lamp from a single piece of bent wood veneer — conical base tapering into an angled shade. Quiet geometry inspired by natural growth.",
+    img: "images/vitamin-k.jpg",
+    images: ["images/vitamin-k.jpg", "images/vitamin-k-2.jpg", "images/vitamin-k-3.jpg", "images/vitamin-k-4.jpg", "images/vitamin-k-5.jpg"]
+  }
+];
+
+// Build grid
+const grid = document.getElementById('projectsGrid');
+let currentSection = '';
+projects.forEach((p, i) => {
+  // Insert subtle section label when section changes
+  if (p.section && p.section !== currentSection) {
+    currentSection = p.section;
+    const labelRow = document.createElement('div');
+    labelRow.className = 'section-label-row';
+    labelRow.innerHTML = `<span class="section-label-text">${p.section}</span>`;
+    grid.appendChild(labelRow);
+  }
+
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', `View ${p.name}`);
+  card.innerHTML = `
+    <img src="${p.img}" alt="${p.name} — ${p.type}" loading="${i < 6 ? 'eager' : 'lazy'}"${p.imgPosition ? ` style="object-position:${p.imgPosition}"` : ''}>
+    <div class="project-info">
+      <div class="project-name">${p.name}</div>
+      <div class="project-type">${p.type}</div>
+    </div>
+  `;
+  card.addEventListener('click', () => openProject(p));
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openProject(p);
+    }
+  });
+  grid.appendChild(card);
+});
+
+// Project detail
+function openProject(project) {
+  const idx = projects.indexOf(project);
+  const mainPage = document.getElementById('mainPage');
+  const detail = document.getElementById('projectDetail');
+  const body = document.getElementById('detailBody');
+
+  document.getElementById('detailHeaderName').textContent = project.name;
+
+  // Build gallery layout — filmstrip style
+  const imgs = project.images;
+  const prev = idx > 0 ? projects[idx - 1] : projects[projects.length - 1];
+  const next = idx < projects.length - 1 ? projects[idx + 1] : projects[0];
+
+  let galleryHTML = `
+    <div class="detail-hero">
+      <div class="detail-hero-text">
+        <h2>${project.name}</h2>
+        <div class="detail-type">${project.type}</div>
+        <p class="detail-desc">${project.desc.split('\n\nRole —')[0]}</p>
+        ${project.desc.includes('Role —') ? `<p class="detail-role">Role —${project.desc.split('Role —')[1]}</p>` : ''}
+        ${project.awards ? `<div class="detail-awards">${project.awards.map(a => `<img src="${a}" alt="Award">`).join('')}</div>` : ''}
+      </div>
+      <div class="detail-hero-image">
+        <img src="${imgs[0]}" alt="${project.name}" id="detailMainImg"${project.imagePositions && project.imagePositions[imgs[0]] ? ` style="object-position:${project.imagePositions[imgs[0]]}"` : ''}>
+      </div>
+    </div>
+    <div class="detail-hero-nav">
+      <div class="detail-nav-link" onclick="openProject(projects[${projects.indexOf(prev)}])">
+        <span class="detail-nav-label">&larr; Previous</span>
+        <span class="detail-nav-name">${prev.name}</span>
+      </div>
+      <div class="detail-nav-link next" onclick="openProject(projects[${projects.indexOf(next)}])">
+        <span class="detail-nav-label">Next &rarr;</span>
+        <span class="detail-nav-name">${next.name}</span>
+      </div>
+    </div>
+    <div class="detail-filmstrip">
+  `;
+
+  // Build filmstrip thumbnails
+  imgs.forEach((src, i) => {
+    const pos = project.imagePositions && project.imagePositions[src] ? ` style="object-position:${project.imagePositions[src]}"` : '';
+    galleryHTML += `<img src="${src}"${pos} alt="${project.name}" class="${i === 0 ? 'active' : ''}" onmouseover="filmstripHover(this, '${src}')" onclick="filmstripTap(this, '${src}')">`;
+  });
+
+  galleryHTML += '</div>';
+
+  body.innerHTML = galleryHTML;
+
+  // Store current images array
+  detail._currentImages = imgs;
+
+  mainPage.style.display = 'none';
+  detail.classList.add('active');
+  detail.scrollTop = 0;
+  window.scrollTo(0, 0);
+  const dh2 = detail.querySelector('.detail-hero-text h2');
+  if (dh2) { dh2.classList.remove('highlighted'); setTimeout(() => dh2.classList.add('highlighted'), 300); }
+}
+
+function goHome() {
+  document.getElementById('mainPage').style.display = '';
+  document.getElementById('projectDetail').classList.remove('active');
+}
+
+// Filmstrip hover/tap — swap hero image and highlight thumb
+function filmstripHover(thumb, src) {
+  const mainImg = document.getElementById('detailMainImg');
+  if (mainImg) {
+    mainImg.src = src;
+    mainImg.style.objectPosition = thumb.style.objectPosition || '';
+  }
+  const strip = thumb.closest('.detail-filmstrip');
+  strip.querySelectorAll('img').forEach(img => img.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+function filmstripTap(thumb, src) {
+  const mainImg = document.getElementById('detailMainImg');
+  if (mainImg) {
+    mainImg.src = src;
+    mainImg.style.objectPosition = thumb.style.objectPosition || '';
+  }
+  const strip = thumb.closest('.detail-filmstrip');
+  strip.querySelectorAll('img').forEach(img => img.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('projectDetail').classList.contains('active')) {
+      goHome();
+    }
+  }
+});
+
+// Contact form handler
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('formStatus');
+  const data = new FormData(form);
+  const info = {};
+  data.forEach((v, k) => info[k] = v);
+
+  // mailto fallback — constructs an email with form data
+  const subject = encodeURIComponent(`Project Inquiry: ${info.project_type || 'General'}`);
+  const body = encodeURIComponent(
+    `Name: ${info.name}\nEmail: ${info.email}\nProject Type: ${info.project_type}\nBudget: ${info.budget || 'Not specified'}\nTimeline: ${info.timeline || 'Not specified'}\n\nMessage:\n${info.message || 'No additional details'}`
+  );
+  window.location.href = `mailto:hello@markofilipic.com?subject=${subject}&body=${body}`;
+
+  status.textContent = 'Opening your email client...';
+  setTimeout(() => {
+    status.textContent = 'If your email client didn\'t open, reach me at hello@markofilipic.com';
+  }, 3000);
+}
+
+// Award logos → open corresponding project
+document.querySelectorAll('.hero-award-logo[data-project]').forEach(logo => {
+  logo.addEventListener('click', () => {
+    const slug = logo.dataset.project;
+    const project = projects.find(p => p.slug === slug);
+    if (project) openProject(project);
+  });
+});
+
+// Process carousel
+(function() {
+  const slides = document.getElementById('processSlides');
+  const dotsContainer = document.getElementById('processDots');
+  const prevBtn = document.getElementById('processPrev');
+  const nextBtn = document.getElementById('processNext');
+  if (!slides) return;
+  const total = slides.children.length;
+  let current = 0;
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'process-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Step ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  let autoTimer;
+
+  function goTo(idx) {
+    current = idx;
+    slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsContainer.querySelectorAll('.process-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      goTo((current + 1) % total);
+    }, 4500);
+  }
+
+  prevBtn.addEventListener('click', () => { goTo((current - 1 + total) % total); startAuto(); });
+  nextBtn.addEventListener('click', () => { goTo((current + 1) % total); startAuto(); });
+  goTo(0);
+  startAuto();
+})();
+
+// Header frosted glass on scroll
+const siteHeader = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 10) {
+    siteHeader.classList.add('scrolled');
+  } else {
+    siteHeader.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+</script>
