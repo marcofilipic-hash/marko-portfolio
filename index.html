@@ -23,6 +23,25 @@
 <meta name="twitter:description" content="Portfolio of Marko Filipic — Industrial Designer based in Barcelona. Furniture, objects, and everyday things designed with warmth and intention.">
 <meta name="twitter:image" content="https://markofilipic.design/images/og-image.jpg">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marko Filipic",
+  "url": "https://markofilipic.design",
+  "jobTitle": "Industrial Designer",
+  "description": "Industrial Designer based in Barcelona. Furniture, objects, and everyday things designed with warmth and intention.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Barcelona",
+    "addressCountry": "ES"
+  },
+  "sameAs": [
+    "https://www.behance.net/markofilipic"
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap">
@@ -111,8 +130,7 @@ body::before {
 .project-card img,
 .detail-hero-image img,
 .detail-filmstrip img,
-.about-photo,
-.gallery-zoom-overlay {
+.about-photo {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g transform='rotate(-40,20,20)' fill='none' stroke='%23F5F2EC' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 4.3l-3.6 7.2h7.2z' fill='none'/><path d='M20 4.3l-0.6 2.2h1.2z' fill='%23F5F2EC'/><line x1='16.4' y1='11.5' x2='23.6' y2='11.5'/><path d='M16.4 11.5q3.6 1.7 7.2 0'/><line x1='16.4' y1='13.2' x2='16.4' y2='30'/><line x1='23.6' y1='13.2' x2='23.6' y2='30'/><line x1='18.8' y1='13.2' x2='18.8' y2='30'/><line x1='21.2' y1='13.2' x2='21.2' y2='30'/><path d='M16.4 30q3.6 4.3 7.2 0' fill='%23F5F2EC'/></g></svg>") 3 1, auto !important;
 }
 
@@ -637,123 +655,6 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   outline-offset: -2px;
 }
 
-/* Click zoom overlay */
-.gallery-zoom-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(28, 26, 23, 0.15);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-.gallery-zoom-overlay.visible {
-  opacity: 1;
-  pointer-events: none;
-}
-.gallery-zoom-overlay.visible.clickable {
-  pointer-events: auto;
-  cursor: pointer;
-}
-.gallery-zoom-overlay img {
-  max-width: 80vw;
-  max-height: 85vh;
-  object-fit: contain;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
-  transform: scale(0.94);
-  transition: transform 0.3s ease;
-  pointer-events: none;
-}
-.gallery-zoom-overlay.visible img {
-  transform: scale(1);
-}
-
-
-/* (detail nav now inside .detail-hero-nav) */
-
-/* Full-screen image viewer */
-.image-viewer {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: rgba(28, 26, 23, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.image-viewer.active {
-  display: flex;
-}
-.image-viewer img {
-  max-width: 92vw;
-  max-height: 90vh;
-  object-fit: contain;
-}
-.image-viewer-close {
-  position: fixed;
-  top: var(--space-sm);
-  right: var(--space-sm);
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: 1px solid rgba(245, 242, 236, 0.2);
-  border-radius: 50%;
-  color: #F5F2EC;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 201;
-}
-.image-viewer-close:hover {
-  border-color: rgba(245, 242, 236, 0.5);
-}
-.viewer-arrow {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: 1px solid rgba(245, 242, 236, 0.2);
-  border-radius: 50%;
-  color: #F5F2EC;
-  font-size: 1.75rem;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 201;
-  transition: border-color 0.2s ease, background 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-.viewer-arrow:hover {
-  border-color: rgba(245, 242, 236, 0.5);
-  background: rgba(245, 242, 236, 0.08);
-}
-.viewer-prev { left: var(--space-sm); }
-.viewer-next { right: var(--space-sm); }
-.viewer-counter {
-  position: fixed;
-  bottom: var(--space-md);
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(245, 242, 236, 0.6);
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  z-index: 201;
-}
 
 /* ---- Statement ---- */
 .statement {
@@ -1251,11 +1152,6 @@ footer {
     flex-wrap: wrap;
   }
 
-  /* Zoom overlay: bigger image on tablet */
-  .gallery-zoom-overlay img {
-    max-width: 92vw;
-    max-height: 80vh;
-  }
 }
 
 @media (max-width: 560px) {
@@ -1412,11 +1308,6 @@ footer {
     gap: var(--space-sm);
   }
 
-  /* Zoom overlay: full-width on phone */
-  .gallery-zoom-overlay img {
-    max-width: 96vw;
-    max-height: 75vh;
-  }
 
   /* Statement section */
   .statement-text p {
@@ -1554,7 +1445,7 @@ footer {
   <div class="container about-inner">
     <div class="about-left">
       <span class="label about-label">About</span>
-      <img src="images/tiento-about.jpg" alt="Marko Filipic working in the workshop" class="about-photo">
+      <img src="images/tiento-about.jpg" alt="Marko Filipic working in the workshop" class="about-photo" loading="lazy">
     </div>
     <div class="about-text">
       <p>I make things — and I understand how they're made.</p>
@@ -1671,9 +1562,6 @@ footer {
 </div>
 
 <!-- Full-screen image viewer -->
-<div class="image-viewer light-cursor" id="imageViewer" style="display:none">
-  <button class="image-viewer-close" aria-label="Close">&times;</button>
-  <img src="" alt="" id="viewerImg">
 </div>
 
 <script>
@@ -1932,7 +1820,7 @@ function openProject(project) {
         <div class="detail-type">${project.type}</div>
         <p class="detail-desc">${project.desc.split('\n\nRole —')[0]}</p>
         ${project.desc.includes('Role —') ? `<p class="detail-role">Role —${project.desc.split('Role —')[1]}</p>` : ''}
-        ${project.awards ? `<div class="detail-awards">${project.awards.map(a => `<img src="${a}" alt="Award">`).join('')}</div>` : ''}
+        ${project.awards ? `<div class="detail-awards">${project.awards.map(a => `<img src="${a}" alt="Award" loading="lazy">`).join('')}</div>` : ''}
       </div>
       <div class="detail-hero-image">
         <img src="${imgs[0]}" alt="${project.name}" id="detailMainImg"${project.imagePositions && project.imagePositions[imgs[0]] ? ` style="object-position:${project.imagePositions[imgs[0]]}"` : ''}>
@@ -1954,7 +1842,7 @@ function openProject(project) {
   // Build filmstrip thumbnails
   imgs.forEach((src, i) => {
     const pos = project.imagePositions && project.imagePositions[src] ? ` style="object-position:${project.imagePositions[src]}"` : '';
-    galleryHTML += `<img src="${src}"${pos} alt="${project.name}" class="${i === 0 ? 'active' : ''}" onmouseover="filmstripHover(this, '${src}')" onclick="filmstripTap(this, '${src}')">`;
+    galleryHTML += `<img src="${src}"${pos} alt="${project.name}" class="${i === 0 ? 'active' : ''}" loading="lazy" onmouseover="filmstripHover(this, '${src}')" onclick="filmstripTap(this, '${src}')">`;
   });
 
   galleryHTML += '</div>';
