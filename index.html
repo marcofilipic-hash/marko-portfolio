@@ -241,6 +241,19 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   flex-wrap: wrap;
 }
 
+.hero-role {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  margin-bottom: 0.75rem;
+  opacity: 0;
+  animation: heroWordIn 0.5s ease 0.05s forwards;
+}
+
+
 .hero h1 {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: 1.08;
@@ -269,11 +282,13 @@ nav a:hover { font-weight: 600; color: var(--fg); }
 
 .hero .subtitle {
   font-family: var(--font-body);
-  font-size: clamp(0.875rem, 1.2vw, 1.0625rem);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--fg-muted);
-  font-weight: 400;
-  max-width: 30ch;
   text-align: right;
+  white-space: nowrap;
   line-height: 1.5;
 }
 
@@ -1348,8 +1363,11 @@ footer {
 <!-- Hero -->
 <div class="container">
   <section class="hero">
-    <h1><span class="hero-word hw1">Where material</span><br><span class="hero-word hw2">meets</span><br><span class="hero-word hw3">intention.</span></h1>
-    <p class="subtitle">From idea to production-ready design.</p>
+    <div>
+      <p class="hero-role">Industrial Designer</p>
+      <h1><span class="hero-word hw1">Where material</span><br><span class="hero-word hw2">meets</span><br><span class="hero-word hw3">intention.</span></h1>
+    </div>
+    <p class="subtitle">From idea to <span style="color:var(--fg)">production-ready</span> design.</p>
   </section>
 </div>
 
