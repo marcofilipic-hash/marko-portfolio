@@ -828,26 +828,59 @@ nav a:hover { font-weight: 600; color: var(--fg); }
 
 .process-dots {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   align-items: center;
+  flex: 1;
 }
 
 .process-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--fg-muted);
-  opacity: 0.3;
-  transition: all 0.3s ease;
+  flex: 1;
+  height: 3px;
+  background: rgba(0,0,0,0.08);
   cursor: pointer;
   border: none;
   padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5px;
 }
 
-.process-dot.active {
-  opacity: 1;
-  background: var(--fg);
-  transform: scale(1.25);
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .process-dot {
+    background: rgba(255,255,255,0.1);
+  }
+}
+
+.process-dot::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: rgba(0,0,0,0.25);
+  border-radius: 1.5px;
+  transition: width 0.15s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .process-dot::after {
+    background: rgba(255,255,255,0.35);
+  }
+}
+
+.process-dot.done::after {
+  width: 100%;
+  transition: none;
+}
+
+.process-dot.active::after {
+  width: 100%;
+  transition: none;
+  animation: processFill var(--process-duration, 8s) linear forwards;
+}
+
+@keyframes processFill {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @media (max-width: 560px) {
@@ -1935,36 +1968,55 @@ document.querySelectorAll('.hero-award-logo[data-project]').forEach(logo => {
   const nextBtn = document.getElementById('processNext');
   if (!slides) return;
   const total = slides.children.length;
+  const DURATION = 8000; // ms per slide
   let current = 0;
+  let autoTimer = null;
+  let paused = false;
 
-  // Build dots
+  // Build progress bars
   for (let i = 0; i < total; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'process-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Step ' + (i + 1));
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
+    const bar = document.createElement('button');
+    bar.className = 'process-dot';
+    bar.setAttribute('aria-label', 'Step ' + (i + 1));
+    bar.addEventListener('click', () => { goTo(i); startAuto(); });
+    dotsContainer.appendChild(bar);
   }
 
-  let autoTimer;
+  const dots = dotsContainer.querySelectorAll('.process-dot');
+  dotsContainer.style.setProperty('--process-duration', DURATION + 'ms');
 
   function goTo(idx) {
     current = idx;
     slides.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dotsContainer.querySelectorAll('.process-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
+    dots.forEach((d, i) => {
+      d.classList.remove('active', 'done');
+      if (i < current) d.classList.add('done');
+      else if (i === current) d.classList.add('active');
     });
   }
 
   function startAuto() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => {
-      goTo((current + 1) % total);
-    }, 4500);
+    clearTimeout(autoTimer);
+    paused = false;
+    // Re-trigger animation by forcing reflow on active dot
+    const activeDot = dots[current];
+    activeDot.classList.remove('active');
+    void activeDot.offsetWidth;
+    activeDot.classList.add('active');
+    autoTimer = setTimeout(() => {
+      if (!paused) goTo((current + 1) % total);
+      if (!paused) startAuto();
+    }, DURATION);
   }
 
   prevBtn.addEventListener('click', () => { goTo((current - 1 + total) % total); startAuto(); });
   nextBtn.addEventListener('click', () => { goTo((current + 1) % total); startAuto(); });
+
+  // Pause on hover
+  const carousel = document.querySelector('.process-carousel');
+  carousel.addEventListener('mouseenter', () => { paused = true; clearTimeout(autoTimer); });
+  carousel.addEventListener('mouseleave', () => { startAuto(); });
+
   goTo(0);
   startAuto();
 })();
