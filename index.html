@@ -873,9 +873,7 @@ nav a:hover { font-weight: 600; color: var(--fg); }
 }
 
 .process-dot.active::after {
-  width: 100%;
-  transition: none;
-  animation: processFill var(--process-duration, 8s) linear forwards;
+  animation: processFill 8s linear forwards;
 }
 
 @keyframes processFill {
@@ -1974,38 +1972,49 @@ document.querySelectorAll('.hero-award-logo[data-project]').forEach(logo => {
   let paused = false;
 
   // Build progress bars
+  dotsContainer.addEventListener('click', function(e) {
+    const bar = e.target.closest('.process-dot');
+    if (!bar) return;
+    const idx = Array.from(dotsContainer.children).indexOf(bar);
+    if (idx >= 0) { goTo(idx); startAuto(); }
+  });
   for (let i = 0; i < total; i++) {
     const bar = document.createElement('button');
     bar.className = 'process-dot';
     bar.setAttribute('aria-label', 'Step ' + (i + 1));
-    bar.addEventListener('click', () => { goTo(i); startAuto(); });
     dotsContainer.appendChild(bar);
   }
 
-  const dots = dotsContainer.querySelectorAll('.process-dot');
-  dotsContainer.style.setProperty('--process-duration', DURATION + 'ms');
+  let dots = Array.from(dotsContainer.querySelectorAll('.process-dot'));
+
+  function updateDots() {
+    dots.forEach((d, i) => {
+      d.classList.remove('active', 'done');
+      if (i < current) d.classList.add('done');
+    });
+    // Clone active dot to force animation restart
+    const old = dots[current];
+    const fresh = old.cloneNode(true);
+    fresh.classList.add('active');
+    old.parentNode.replaceChild(fresh, old);
+    dots[current] = fresh;
+  }
 
   function goTo(idx) {
     current = idx;
     slides.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dots.forEach((d, i) => {
-      d.classList.remove('active', 'done');
-      if (i < current) d.classList.add('done');
-      else if (i === current) d.classList.add('active');
-    });
+    updateDots();
   }
 
   function startAuto() {
     clearTimeout(autoTimer);
     paused = false;
-    // Re-trigger animation by forcing reflow on active dot
-    const activeDot = dots[current];
-    activeDot.classList.remove('active');
-    void activeDot.offsetWidth;
-    activeDot.classList.add('active');
+    updateDots();
     autoTimer = setTimeout(() => {
-      if (!paused) goTo((current + 1) % total);
-      if (!paused) startAuto();
+      if (!paused) {
+        goTo((current + 1) % total);
+        startAuto();
+      }
     }, DURATION);
   }
 
