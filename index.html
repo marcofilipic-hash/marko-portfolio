@@ -826,59 +826,51 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   stroke-linejoin: round;
 }
 
+.process-progress {
+  height: 4px;
+  background: rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.process-progress-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  background: rgba(0,0,0,0.22);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .process-progress {
+    background: rgba(255,255,255,0.08);
+  }
+  :root:not([data-theme="light"]) .process-progress-fill {
+    background: rgba(255,255,255,0.3);
+  }
+}
+
 .process-dots {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   align-items: center;
-  flex: 1;
 }
 
 .process-dot {
-  flex: 1;
-  height: 3px;
-  background: rgba(0,0,0,0.08);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fg-muted);
+  opacity: 0.3;
+  transition: all 0.3s ease;
   cursor: pointer;
   border: none;
   padding: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 1.5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .process-dot {
-    background: rgba(255,255,255,0.1);
-  }
-}
-
-.process-dot::after {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 0;
-  background: rgba(0,0,0,0.25);
-  border-radius: 1.5px;
-  transition: width 0.15s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .process-dot::after {
-    background: rgba(255,255,255,0.35);
-  }
-}
-
-.process-dot.done::after {
-  width: 100%;
-  transition: none;
-}
-
-.process-dot.active::after {
-  animation: processFill 8s linear forwards;
-}
-
-@keyframes processFill {
-  from { width: 0; }
-  to { width: 100%; }
+.process-dot.active {
+  opacity: 1;
+  background: var(--fg);
+  transform: scale(1.25);
 }
 
 @media (max-width: 560px) {
@@ -1420,6 +1412,7 @@ footer {
         </video>
       </div>
       <div class="process-carousel">
+        <div class="process-progress"><div class="process-progress-fill" id="processProgressFill"></div></div>
         <div class="process-slides" id="processSlides">
           <div class="process-slide">
             <div class="process-slide-number">01</div>
@@ -1964,67 +1957,59 @@ document.querySelectorAll('.hero-award-logo[data-project]').forEach(logo => {
   const dotsContainer = document.getElementById('processDots');
   const prevBtn = document.getElementById('processPrev');
   const nextBtn = document.getElementById('processNext');
-  if (!slides) return;
+  const fill = document.getElementById('processProgressFill');
+  if (!slides || !fill) return;
   const total = slides.children.length;
-  const DURATION = 8000; // ms per slide
+  const DURATION = 8000;
   let current = 0;
-  let autoTimer = null;
   let paused = false;
+  let startTime = 0;
+  let rafId = null;
 
-  // Build progress bars
-  dotsContainer.addEventListener('click', function(e) {
-    const bar = e.target.closest('.process-dot');
-    if (!bar) return;
-    const idx = Array.from(dotsContainer.children).indexOf(bar);
-    if (idx >= 0) { goTo(idx); startAuto(); }
-  });
+  // Build dots
   for (let i = 0; i < total; i++) {
-    const bar = document.createElement('button');
-    bar.className = 'process-dot';
-    bar.setAttribute('aria-label', 'Step ' + (i + 1));
-    dotsContainer.appendChild(bar);
-  }
-
-  let dots = Array.from(dotsContainer.querySelectorAll('.process-dot'));
-
-  function updateDots() {
-    dots.forEach((d, i) => {
-      d.classList.remove('active', 'done');
-      if (i < current) d.classList.add('done');
-    });
-    // Clone active dot to force animation restart
-    const old = dots[current];
-    const fresh = old.cloneNode(true);
-    fresh.classList.add('active');
-    old.parentNode.replaceChild(fresh, old);
-    dots[current] = fresh;
+    const dot = document.createElement('button');
+    dot.className = 'process-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Step ' + (i + 1));
+    dot.addEventListener('click', () => { goTo(i); startAuto(); });
+    dotsContainer.appendChild(dot);
   }
 
   function goTo(idx) {
     current = idx;
     slides.style.transform = 'translateX(-' + (current * 100) + '%)';
-    updateDots();
+    dotsContainer.querySelectorAll('.process-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function tick(now) {
+    if (paused) { rafId = requestAnimationFrame(tick); return; }
+    var elapsed = now - startTime;
+    var pct = Math.min(elapsed / DURATION, 1);
+    fill.style.width = (pct * 100) + '%';
+    if (pct >= 1) {
+      goTo((current + 1) % total);
+      startTime = now;
+    }
+    rafId = requestAnimationFrame(tick);
   }
 
   function startAuto() {
-    clearTimeout(autoTimer);
-    paused = false;
-    updateDots();
-    autoTimer = setTimeout(() => {
-      if (!paused) {
-        goTo((current + 1) % total);
-        startAuto();
-      }
-    }, DURATION);
+    if (rafId) cancelAnimationFrame(rafId);
+    startTime = performance.now();
+    fill.style.width = '0%';
+    rafId = requestAnimationFrame(tick);
   }
 
   prevBtn.addEventListener('click', () => { goTo((current - 1 + total) % total); startAuto(); });
   nextBtn.addEventListener('click', () => { goTo((current + 1) % total); startAuto(); });
 
   // Pause on hover
-  const carousel = document.querySelector('.process-carousel');
-  carousel.addEventListener('mouseenter', () => { paused = true; clearTimeout(autoTimer); });
-  carousel.addEventListener('mouseleave', () => { startAuto(); });
+  var carousel = document.querySelector('.process-carousel');
+  var pausedAt = 0;
+  carousel.addEventListener('mouseenter', () => { paused = true; pausedAt = performance.now(); });
+  carousel.addEventListener('mouseleave', () => { startTime += performance.now() - pausedAt; paused = false; });
 
   goTo(0);
   startAuto();
