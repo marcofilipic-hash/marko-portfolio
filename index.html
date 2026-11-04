@@ -1935,11 +1935,19 @@ function openProject(project) {
   window.scrollTo(0, 0);
   const dh2 = detail.querySelector('.detail-hero-text h2');
   if (dh2) { dh2.classList.remove('highlighted'); setTimeout(() => dh2.classList.add('highlighted'), 300); }
+
+  // Update URL so each project has a shareable link
+  if (history.replaceState) {
+    history.replaceState({ project: project.slug }, '', '#project/' + project.slug);
+  }
 }
 
 function goHome() {
   document.getElementById('mainPage').style.display = '';
   document.getElementById('projectDetail').classList.remove('active');
+  if (history.replaceState) {
+    history.replaceState(null, '', window.location.pathname);
+  }
 }
 
 // Filmstrip hover/tap — swap hero image and highlight thumb
@@ -2005,6 +2013,16 @@ function handleSubmit(e) {
     status.textContent = 'If your email client didn\'t open, reach me at hello@markofilipic.com';
   }, 3000);
 }
+
+// Open project from URL hash (e.g. #project/nobi)
+(function() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#project/')) {
+    const slug = hash.replace('#project/', '');
+    const project = projects.find(p => p.slug === slug);
+    if (project) openProject(project);
+  }
+})();
 
 // Award logos → open corresponding project
 document.querySelectorAll('.hero-award-logo[data-project]').forEach(logo => {
