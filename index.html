@@ -94,6 +94,7 @@ body {
   padding-block: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -231,6 +232,61 @@ nav a::after {
   visibility: hidden;
 }
 nav a:hover { font-weight: 600; color: var(--fg); }
+
+/* ---- Hamburger ---- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 11;
+}
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--fg);
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-open .menu-toggle span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.nav-open .menu-toggle span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  nav {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .nav-open nav {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav a {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
 
 /* ---- Hero ---- */
 .hero {
@@ -1098,8 +1154,6 @@ footer {
     font-size: 2.5rem;
   }
 
-  nav { gap: var(--space-sm); }
-
   /* Detail page: let it scroll naturally on tablet/mobile */
   .project-detail {
     overflow-y: auto;
@@ -1193,10 +1247,6 @@ footer {
 
   .site-name {
     font-size: 1rem;
-  }
-
-  nav a {
-    font-size: 0.8rem;
   }
 
   .section-label-text {
@@ -1333,6 +1383,9 @@ footer {
 <header>
   <div class="container header-inner">
     <a class="site-name" href="#" onclick="event.preventDefault(); goHome()">Marko Filipic</a>
+    <button class="menu-toggle" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">
+      <span></span><span></span>
+    </button>
     <nav>
       <a href="#work" data-text="Work">Work</a>
       <a href="#process" data-text="Process">Process</a>
@@ -1880,6 +1933,11 @@ function filmstripTap(thumb, src) {
   strip.querySelectorAll('img').forEach(img => img.classList.remove('active'));
   thumb.classList.add('active');
 }
+
+// Close mobile nav on link click
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', () => document.body.classList.remove('nav-open'));
+});
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
