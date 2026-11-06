@@ -1045,6 +1045,68 @@ footer {
   color: var(--fg-muted);
 }
 
+/* ---- Testimonials ---- */
+.testimonials {
+  padding-block: var(--space-xl);
+  background: var(--bg-alt, #F5F5F5);
+}
+
+.testimonials-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials-inner .section-title {
+  margin-bottom: var(--space-lg);
+}
+
+.testimonials-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.testimonial {
+  text-align: left;
+  padding: var(--space-sm) 0;
+}
+
+.testimonial blockquote {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--fg);
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.testimonial .testimonial-meta {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+  font-style: normal;
+}
+
+.testimonial .testimonial-stars {
+  color: #E8A838;
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 769px) {
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+  .testimonial:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 /* ---- Contact Form ---- */
 .contact-section {
   padding-block: var(--space-xl);
@@ -1531,6 +1593,35 @@ footer {
       <p>Today I work between art and industry. My personal work is driven by material curiosity — wood, metal, ceramics. My professional work brings that same sensibility to products, furniture, and objects that need to be manufactured, sold, and lived with. Along the way, the projects I've been part of have been recognized with Red Dot (including Best of the Best), iF Design, Eurobike, MUSE, and European Product Design Awards — 10+ international awards between 2016 and 2025.</p>
       <p class="services-paragraph"><strong>What I do for clients:</strong> Furniture design, product design, CMF (color, material, finish), 3D rendering, and prototyping. I take projects from first idea to production-ready files — or step in wherever the process needs me. If you're a brand looking for someone to develop a collection, a piece, or a product line, let's talk.</p>
       <p>Based in Barcelona. Co-founder of <a href="https://watif.design" target="_blank" rel="noopener">Watif</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="container testimonials-inner">
+    <h2 class="section-title reveal">What Clients Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"They don't just deliver a design. They create a complete brand experience with intention behind every detail. The final result is unique, elevated, and full of beauty. They exceeded my expectations in every way."</blockquote>
+        <div class="testimonial-meta">— Product design & brand identity client</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"From the start, it was clear they've done this before. A lot of their input was practical, experience-based guidance that helped move things forward faster."</blockquote>
+        <div class="testimonial-meta">— Product development client</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"An exceptional industrial designer who brought incredible creativity and precision to our project. His ability to transform ideas into innovative and functional designs is truly impressive."</blockquote>
+        <div class="testimonial-meta">— Injection-molded product client</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>"It felt like they genuinely cared about doing good work and getting the details right. I truly can't say enough good things."</blockquote>
+        <div class="testimonial-meta">— Product engineering client</div>
+      </div>
     </div>
   </div>
 </section>
