@@ -1127,6 +1127,22 @@ footer {
   max-width: 540px;
 }
 
+.cal-button {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  padding: 0.75rem 2rem;
+  background: var(--fg);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+}
+.cal-button:hover {
+  opacity: 0.8;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -1634,6 +1650,8 @@ footer {
       <div class="contact-intro">
         <p style="font-size:1.5rem;font-weight:500;line-height:1.3;margin-bottom:0.75rem;">Have a project in mind?</p>
         <p>Tell me a bit about what you're looking for and I'll get back to you.</p>
+        <p style="margin-top:var(--space-sm);">Or book a free 30-minute call directly:</p>
+        <a href="https://cal.com/marco-filipic/30min" target="_blank" rel="noopener" class="cal-button">Book a Call</a>
       </div>
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <div class="form-row">
