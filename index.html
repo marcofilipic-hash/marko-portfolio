@@ -838,108 +838,63 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   display: block;
 }
 
-/* Carousel */
-.process-carousel {
-  position: relative;
-  overflow: hidden;
+/* Process cards grid */
+.process-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  text-align: left;
 }
 
-.process-slides {
-  display: flex;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.process-slide {
-  min-width: 100%;
+.process-card {
   padding: var(--space-md);
+  border: 1px solid rgba(28, 26, 23, 0.08);
   background: var(--bg-alt);
 }
 
-/* .process-slide-number removed — index numbering banned */
+.process-card-number {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  margin-bottom: var(--space-xs);
+}
 
-.process-slide-title {
+.process-card-title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 400;
   color: var(--fg);
-  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
 
-.process-slide-desc {
+.process-card-desc {
   font-size: 0.9375rem;
   line-height: 1.65;
   color: var(--fg-secondary);
 }
 
-/* Carousel controls */
-.process-controls {
+.process-card-tags {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.35rem;
   margin-top: var(--space-sm);
-  gap: var(--space-sm);
 }
 
-.process-nav-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--overlay-light);
-  background: var(--bg);
-  color: var(--fg);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-
-.process-nav-btn:hover {
-  border-color: var(--fg);
-  color: var(--fg);
-}
-
-.process-nav-btn svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.process-dots {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.process-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--fg-muted);
-  opacity: 0.3;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  padding: 0;
-}
-
-.process-dot.active {
-  opacity: 1;
-  background: var(--fg);
-  transform: scale(1.25);
+.process-card-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+  border: 1px solid rgba(28,26,23,0.12);
+  padding: 0.25rem 0.6rem;
+  text-transform: uppercase;
 }
 
 @media (max-width: 560px) {
-  .process-slide {
-    padding: var(--space-sm);
-  }
-  .process-slide-title {
-    font-size: 1.05rem;
+  .process-cards {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1608,52 +1563,53 @@ footer {
   </div>
   <div class="container">
       <div class="process-media reveal">
-      <div class="process-video-block">
-        <video autoplay muted loop playsinline>
-          <source src="images/process-timelapse.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="process-carousel">
-        <div class="process-slides" id="processSlides">
-          <div class="process-slide">
-            <div class="process-slide-title">Understanding Your Idea</div>
-            <div class="process-slide-desc">We start with a conversation where I listen, ask the right questions, and help you define what your product actually needs to be. If you don't have a brief, I'll create one. If you do, I'll sharpen it.</div>
-          </div>
-          <div class="process-slide">
-            <div class="process-slide-title">Research, Journey Map & Roadmap</div>
-            <div class="process-slide-desc">I study the market, materials, manufacturing processes, and map the user journey to know where we stand. Then I lay out a project roadmap so you know exactly what to expect — timeline, stages, and deliverables.</div>
-          </div>
-          <div class="process-slide">
-            <div class="process-slide-title">Concept Exploration</div>
-            <div class="process-slide-desc">Sketches, mockups, usage scenarios, early renders and 3D drafts. This is the moment to explore freely — but every direction is grounded in how it will actually be manufactured.</div>
-          </div>
-          <div class="process-slide">
-            <div class="process-slide-title">Review & Direction</div>
-            <div class="process-slide-desc">I present the concepts with my recommendation. We iterate together, refine what works, and you choose the direction to move forward with.</div>
-          </div>
-          <div class="process-slide">
-            <div class="process-slide-title">Prototyping & 3D Printing</div>
-            <div class="process-slide-desc">The chosen concept becomes physical. Rapid prototypes, 3D prints, and scale models to test form, fit, and feel before committing to tooling.</div>
-          </div>
-          <div class="process-slide">
-            <div class="process-slide-title">Rendering & Visualization</div>
-            <div class="process-slide-desc">Photorealistic renders for investor decks, marketing, crowdfunding, or your own confidence before production.</div>
-          </div>
-          <div class="process-slide">
-            <div class="process-slide-title">Manufacturing & Go to Market</div>
-            <div class="process-slide-desc">I follow up with manufacturers, refine for production, and support you through tooling, sourcing, and the path to market. The design doesn't end until it's real.</div>
-          </div>
+        <div class="process-video-block">
+          <video autoplay muted loop playsinline>
+            <source src="images/process-timelapse.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-      <div class="process-controls">
-        <button class="process-nav-btn" id="processPrev" aria-label="Previous step">
-          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <div class="process-dots" id="processDots"></div>
-        <button class="process-nav-btn" id="processNext" aria-label="Next step">
-          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
-        </button>
-      </div>
+      <div class="process-cards reveal">
+        <div class="process-card">
+          <div class="process-card-number">Phase 01</div>
+          <div class="process-card-title">Understand & Define</div>
+          <div class="process-card-desc">I listen, ask the right questions, study the market and materials, and build a clear roadmap. You'll know exactly what to expect before anything is designed.</div>
+          <div class="process-card-tags">
+            <span class="process-card-tag">Brief</span>
+            <span class="process-card-tag">Research</span>
+            <span class="process-card-tag">Roadmap</span>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-card-number">Phase 02</div>
+          <div class="process-card-title">Explore & Iterate</div>
+          <div class="process-card-desc">Sketches, mockups, early renders, and usage scenarios. Every concept is grounded in how it will actually be made. You pick the direction.</div>
+          <div class="process-card-tags">
+            <span class="process-card-tag">Sketches</span>
+            <span class="process-card-tag">3D Drafts</span>
+            <span class="process-card-tag">Review</span>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-card-number">Phase 03</div>
+          <div class="process-card-title">Prototype & Visualize</div>
+          <div class="process-card-desc">The concept becomes physical. Rapid prototypes to test form and fit, and photorealistic renders for decks, marketing, or crowdfunding.</div>
+          <div class="process-card-tags">
+            <span class="process-card-tag">3D Printing</span>
+            <span class="process-card-tag">Renders</span>
+            <span class="process-card-tag">Testing</span>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-card-number">Phase 04</div>
+          <div class="process-card-title">Manufacture & Launch</div>
+          <div class="process-card-desc">I work with manufacturers, refine for production, and support you through tooling and sourcing. The design doesn't end until it's real.</div>
+          <div class="process-card-tags">
+            <span class="process-card-tag">DFM</span>
+            <span class="process-card-tag">Tooling</span>
+            <span class="process-card-tag">Sourcing</span>
+          </div>
+        </div>
       </div>
   </div>
 </section>
@@ -2237,46 +2193,6 @@ document.querySelectorAll('.hero-award-logo[data-project]').forEach(logo => {
     if (project) openProject(project);
   });
 });
-
-// Process carousel
-(function() {
-  const slides = document.getElementById('processSlides');
-  const dotsContainer = document.getElementById('processDots');
-  const prevBtn = document.getElementById('processPrev');
-  const nextBtn = document.getElementById('processNext');
-  if (!slides) return;
-  const total = slides.children.length;
-  let current = 0;
-  let autoTimer;
-
-  for (let i = 0; i < total; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'process-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Step ' + (i + 1));
-    dot.addEventListener('click', () => { goTo(i); startAuto(); });
-    dotsContainer.appendChild(dot);
-  }
-
-  function goTo(idx) {
-    current = idx;
-    slides.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dotsContainer.querySelectorAll('.process-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
-  }
-
-  function startAuto() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => {
-      goTo((current + 1) % total);
-    }, 8000);
-  }
-
-  prevBtn.addEventListener('click', () => { goTo((current - 1 + total) % total); startAuto(); });
-  nextBtn.addEventListener('click', () => { goTo((current + 1) % total); startAuto(); });
-  goTo(0);
-  startAuto();
-})();
 
 // Header shadow on scroll
 const siteHeader = document.querySelector('header');
