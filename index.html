@@ -730,6 +730,115 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   outline-offset: -2px;
 }
 
+/* ---- Case Study ---- */
+.cs-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+  cursor: pointer;
+  border: 1px solid rgba(28,26,23,0.15);
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.cs-cta:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+.cs-cta svg { width: 14px; height: 14px; }
+
+.case-study {
+  padding-top: var(--space-lg);
+}
+.case-study .cs-divider {
+  border: none;
+  border-top: 1px solid rgba(28,26,23,0.08);
+  margin: 0;
+}
+.case-study .cs-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  margin-bottom: var(--space-sm);
+}
+.case-study .cs-section {
+  padding-block: var(--space-lg);
+}
+.case-study .cs-section h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+  text-wrap: balance;
+}
+.case-study .cs-section p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--fg-secondary);
+  max-width: 580px;
+}
+.case-study .cs-section p + p {
+  margin-top: 0.75rem;
+}
+.case-study .cs-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+.case-study .cs-two-col img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.case-study .cs-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+}
+.case-study .cs-stat-number {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--fg);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.case-study .cs-stat-label {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+.case-study .cs-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  padding-top: var(--space-sm);
+}
+.case-study .cs-gallery img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.case-study .cs-gallery img.wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/9;
+}
+
 
 /* ---- Statement ---- */
 .statement {
@@ -1323,6 +1432,17 @@ footer {
 
   .detail-hero-nav {
     flex-wrap: wrap;
+  }
+
+  .case-study .cs-two-col {
+    grid-template-columns: 1fr;
+  }
+  .case-study .cs-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  .case-study .cs-gallery {
+    grid-template-columns: 1fr;
   }
 
 }
@@ -1923,7 +2043,36 @@ const projects = [
     desc: "An AI-driven smart lamp for fall detection, prevention, and vital sign monitoring. The challenge was to make care technology that people actually want — not just need. The result is a lamp that fits any interior and looks nothing like medical equipment. Nobi saves lives 24/7, warns caregivers when health declines, and gives elderly people the dignity of living independently. iF Design Award 2023 · MUSE Design Award 2023.\n\nRole — Lead designer with Matías Papalini for Watif Design Studio.",
     img: "images/nobi.jpg",
     images: ["images/nobi.jpg", "images/nobi-2.jpg", "images/nobi-3.jpg", "images/nobi-4.jpg", "images/nobi-5.jpg", "images/nobi-6.jpg", "images/nobi-7.jpg", "images/nobi-8.jpg", "images/nobi-9.jpg", "images/nobi-10.jpg", "images/nobi-11.jpg", "images/nobi-12.jpg", "images/nobi-13.jpg"],
-    awards: ["images/award-if.png", "images/award-muse.png"]
+    awards: ["images/award-if.png", "images/award-muse.png"],
+    caseStudy: {
+      challenge: {
+        title: "Making care technology feel like home",
+        text: "Elderly care devices usually look like medical equipment. That's exactly what people don't want in their bedroom or living room. Nobi needed to be a lamp first, care device second.\n\nThe product had to house complex sensors — fall detection, vital sign monitoring, ambient light control — inside a form that feels familiar and domestic. Something the user actually recognizes as a lamp, not as a device imposed on them.",
+        img: "images/nobi-3.jpg"
+      },
+      approach: {
+        title: "Fewer parts, more clarity",
+        text: "The original concept had 70 components. We reduced it to 15 — not just to simplify manufacturing, but because every unnecessary piece was making the product look more like a device and less like a lamp. The sensor array sits behind a minimal diffuser. Camera and depth sensors are integrated into the edge profile, invisible at ceiling height.\n\nEvery design decision was tested against one question: would an elderly person recognize this as their lamp — not something a caregiver installed?",
+        img: "images/nobi-5.jpg"
+      },
+      impact: [
+        { number: "24/7", label: "Fall detection & vital monitoring" },
+        { number: "70 → 15", label: "Components reduced without losing function" },
+        { number: "2", label: "International design awards" }
+      ],
+      result: {
+        title: "A lamp that saves lives without looking like it",
+        text: "Nobi is now installed in homes and care facilities across Europe. It warns caregivers when health declines, detects falls in real time, and gives elderly people the dignity of living independently — all from a lamp they chose, not one that was chosen for them.\n\nThe project was recognized with an iF Design Award and a MUSE Design Award in 2023."
+      },
+      gallery: [
+        { src: "images/nobi-11.jpg", wide: true },
+        { src: "images/nobi-6.jpg" },
+        { src: "images/nobi-7.jpg" },
+        { src: "images/nobi-10.jpg" },
+        { src: "images/nobi-12.jpg" },
+        { src: "images/nobi-8.jpg", wide: true }
+      ]
+    }
   },
   {
     slug: "portal",
@@ -2061,6 +2210,7 @@ function openProject(project) {
         <p class="detail-desc">${project.desc.split('\n\nRole —')[0]}</p>
         ${project.desc.includes('Role —') ? `<p class="detail-role">Role —${project.desc.split('Role —')[1]}</p>` : ''}
         ${project.awards ? `<div class="detail-awards">${project.awards.map(a => `<img src="${a}" alt="Award" loading="lazy">`).join('')}</div>` : ''}
+        ${project.caseStudy ? `<button class="cs-cta" onclick="document.getElementById('caseStudySection').scrollIntoView({behavior:'smooth'})">Read Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button>` : ''}
       </div>
       <div class="detail-hero-image">
         <img src="${imgs[0]}" alt="${project.name}" id="detailMainImg"${project.imagePositions && project.imagePositions[imgs[0]] ? ` style="object-position:${project.imagePositions[imgs[0]]}"` : ''}>
@@ -2076,8 +2226,74 @@ function openProject(project) {
         <span class="detail-nav-name">${next.name}</span>
       </div>
     </div>
-    <div class="detail-filmstrip">
   `;
+
+  // Case study sections (if project has one)
+  if (project.caseStudy) {
+    const cs = project.caseStudy;
+    galleryHTML += `<div class="case-study" id="caseStudySection">`;
+
+    // Challenge
+    galleryHTML += `
+      <hr class="cs-divider">
+      <div class="cs-section">
+        <div class="cs-label">The Challenge</div>
+        <div class="cs-two-col">
+          <div>
+            <h3>${cs.challenge.title}</h3>
+            ${cs.challenge.text.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+          </div>
+          <img src="${cs.challenge.img}" alt="Challenge" loading="lazy">
+        </div>
+      </div>`;
+
+    // Approach
+    galleryHTML += `
+      <hr class="cs-divider">
+      <div class="cs-section">
+        <div class="cs-label">The Approach</div>
+        <div class="cs-two-col">
+          <img src="${cs.approach.img}" alt="Approach" loading="lazy">
+          <div>
+            <h3>${cs.approach.title}</h3>
+            ${cs.approach.text.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+          </div>
+        </div>
+      </div>`;
+
+    // Impact
+    galleryHTML += `
+      <hr class="cs-divider">
+      <div class="cs-section">
+        <div class="cs-label">Impact</div>
+        <div class="cs-stats">
+          ${cs.impact.map(s => `<div><div class="cs-stat-number">${s.number}</div><div class="cs-stat-label">${s.label}</div></div>`).join('')}
+        </div>
+      </div>`;
+
+    // Result
+    galleryHTML += `
+      <hr class="cs-divider">
+      <div class="cs-section">
+        <div class="cs-label">The Result</div>
+        <h3>${cs.result.title}</h3>
+        ${cs.result.text.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>`;
+
+    // Gallery
+    galleryHTML += `
+      <hr class="cs-divider">
+      <div class="cs-section">
+        <div class="cs-label">Gallery</div>
+        <div class="cs-gallery">
+          ${cs.gallery.map(g => `<img src="${g.src}" alt="${project.name}"${g.wide ? ' class="wide"' : ''} loading="lazy">`).join('')}
+        </div>
+      </div>`;
+
+    galleryHTML += `</div>`; // close .case-study
+  }
+
+  galleryHTML += `<div class="detail-filmstrip">`;
 
   // Build filmstrip thumbnails
   imgs.forEach((src, i) => {
