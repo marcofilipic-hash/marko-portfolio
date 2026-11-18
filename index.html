@@ -1626,7 +1626,7 @@ footer {
       <h1><span class="hero-word hw1">Where material</span><br><span class="hero-word hw2">meets</span><br><span class="hero-word hw3">intention.</span></h1>
     </div>
     <p class="subtitle">From idea to <span style="color:var(--fg)">production-ready</span> design.</p>
-    <a class="hero-cs-link" onclick="openProject(projects.find(p=>p.slug==='nobi-smart-lamp'));setTimeout(()=>document.getElementById('caseStudySection')?.scrollIntoView({behavior:'smooth'}),400)">How we turned 70 components into 15 <span>→</span></a>
+    <a class="hero-cs-link" onclick="openProject(projects.find(p=>p.slug==='nobi'));requestAnimationFrame(()=>setTimeout(()=>{const el=document.getElementById('caseStudySection');if(el)el.scrollIntoView({behavior:'smooth'})},600))">Nobi Case Study <span>→</span></a>
   </section>
 </div>
 
