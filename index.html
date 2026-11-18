@@ -502,7 +502,8 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   z-index: 100;
   background: var(--bg);
   background-blend-mode: multiply;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
@@ -567,9 +568,9 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   padding: var(--space-sm) 16px var(--space-xs);
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 52px);
-  height: calc(100dvh - 52px);
-  overflow: hidden;
+  min-height: calc(100vh - 52px);
+  min-height: calc(100dvh - 52px);
+  overflow: visible;
 }
 
 .detail-hero {
