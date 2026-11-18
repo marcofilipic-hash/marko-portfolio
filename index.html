@@ -355,6 +355,30 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   line-height: 1.5;
 }
 
+.hero-cs-link {
+  display: block;
+  text-align: right;
+  margin-top: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.hero-cs-link:hover {
+  color: var(--fg);
+}
+.hero-cs-link span {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.hero-cs-link:hover span {
+  transform: translateX(3px);
+}
+
 /* ---- Section Labels ---- */
 .section-label-row {
   grid-column: 1 / -1;
@@ -1432,6 +1456,10 @@ footer {
     font-size: 0.85rem;
   }
 
+  .hero-cs-link {
+    text-align: left;
+  }
+
   .hero-right {
     align-items: flex-start;
   }
@@ -1598,6 +1626,7 @@ footer {
       <h1><span class="hero-word hw1">Where material</span><br><span class="hero-word hw2">meets</span><br><span class="hero-word hw3">intention.</span></h1>
     </div>
     <p class="subtitle">From idea to <span style="color:var(--fg)">production-ready</span> design.</p>
+    <a class="hero-cs-link" onclick="openProject(projects.find(p=>p.slug==='nobi-smart-lamp'));setTimeout(()=>document.getElementById('caseStudySection')?.scrollIntoView({behavior:'smooth'}),400)">How we turned 70 components into 15 <span>→</span></a>
   </section>
 </div>
 
