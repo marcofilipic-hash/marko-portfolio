@@ -121,7 +121,6 @@ body::before {
 /* Auto light cursor on images and dark overlays */
 .project-card img,
 .detail-hero-image img,
-.detail-filmstrip img,
 .about-photo {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g transform='rotate(-40,20,20)' fill='none' stroke='%23F5F2EC' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 4.3l-3.6 7.2h7.2z' fill='none'/><path d='M20 4.3l-0.6 2.2h1.2z' fill='%23F5F2EC'/><line x1='16.4' y1='11.5' x2='23.6' y2='11.5'/><path d='M16.4 11.5q3.6 1.7 7.2 0'/><line x1='16.4' y1='13.2' x2='16.4' y2='30'/><line x1='23.6' y1='13.2' x2='23.6' y2='30'/><line x1='18.8' y1='13.2' x2='18.8' y2='30'/><line x1='21.2' y1='13.2' x2='21.2' y2='30'/><path d='M16.4 30q3.6 4.3 7.2 0' fill='%23F5F2EC'/></g></svg>") 3 1, auto !important;
 }
@@ -695,40 +694,6 @@ nav a:hover { font-weight: 600; color: var(--fg); }
   aspect-ratio: 1 / 1;
   object-fit: cover;
   cursor: pointer;
-}
-
-/* Filmstrip — horizontal thumbnail row at bottom */
-.detail-filmstrip {
-  flex-shrink: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  padding: 12px 0 12px;
-  /* border removed — taste-skill: thin rules banned */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
-}
-.detail-filmstrip::-webkit-scrollbar { display: none; }
-
-.detail-filmstrip img {
-  height: 144px;
-  width: 144px;
-  object-fit: cover;
-  display: inline-block;
-  vertical-align: top;
-  cursor: pointer;
-  margin-right: 6px;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-}
-.detail-filmstrip img:hover {
-  opacity: 1;
-}
-.detail-filmstrip img.active {
-  opacity: 1;
-  outline: 2px solid var(--fg);
-  outline-offset: -2px;
 }
 
 /* ---- Case Study ---- */
@@ -1418,15 +1383,6 @@ footer {
     object-fit: cover;
   }
 
-  .detail-filmstrip {
-    flex-wrap: nowrap;
-    padding: 12px 0;
-  }
-  .detail-filmstrip img {
-    height: 100px;
-    width: 100px;
-  }
-
   .detail-awards img {
     height: 6rem;
   }
@@ -1556,15 +1512,6 @@ footer {
   }
   .detail-awards img {
     height: 4.5rem;
-  }
-
-  .detail-filmstrip {
-    padding: 8px 0;
-    gap: 4px;
-  }
-  .detail-filmstrip img {
-    height: 72px;
-    width: 72px;
   }
 
   .detail-hero-nav {
@@ -2198,7 +2145,7 @@ function openProject(project) {
 
   document.getElementById('detailHeaderName').textContent = project.name;
 
-  // Build gallery layout — filmstrip style
+  // Build project detail layout
   const imgs = project.images;
   const prev = idx > 0 ? projects[idx - 1] : projects[projects.length - 1];
   const next = idx < projects.length - 1 ? projects[idx + 1] : projects[0];
@@ -2294,16 +2241,6 @@ function openProject(project) {
     galleryHTML += `</div>`; // close .case-study
   }
 
-  galleryHTML += `<div class="detail-filmstrip">`;
-
-  // Build filmstrip thumbnails
-  imgs.forEach((src, i) => {
-    const pos = project.imagePositions && project.imagePositions[src] ? ` style="object-position:${project.imagePositions[src]}"` : '';
-    galleryHTML += `<img src="${src}"${pos} alt="${project.name}" class="${i === 0 ? 'active' : ''}" loading="lazy" onmouseover="filmstripHover(this, '${src}')" onclick="filmstripTap(this, '${src}')">`;
-  });
-
-  galleryHTML += '</div>';
-
   body.innerHTML = galleryHTML;
 
   // Store current images array
@@ -2328,29 +2265,6 @@ function goHome() {
   if (history.replaceState) {
     history.replaceState(null, '', window.location.pathname);
   }
-}
-
-// Filmstrip hover/tap — swap hero image and highlight thumb
-function filmstripHover(thumb, src) {
-  const mainImg = document.getElementById('detailMainImg');
-  if (mainImg) {
-    mainImg.src = src;
-    mainImg.style.objectPosition = thumb.style.objectPosition || '';
-  }
-  const strip = thumb.closest('.detail-filmstrip');
-  strip.querySelectorAll('img').forEach(img => img.classList.remove('active'));
-  thumb.classList.add('active');
-}
-
-function filmstripTap(thumb, src) {
-  const mainImg = document.getElementById('detailMainImg');
-  if (mainImg) {
-    mainImg.src = src;
-    mainImg.style.objectPosition = thumb.style.objectPosition || '';
-  }
-  const strip = thumb.closest('.detail-filmstrip');
-  strip.querySelectorAll('img').forEach(img => img.classList.remove('active'));
-  thumb.classList.add('active');
 }
 
 // Scroll reveal
